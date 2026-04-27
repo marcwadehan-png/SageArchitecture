@@ -1,0 +1,63 @@
+# Git attributes for SageArchitecture project
+
+# Auto-detect text files and ensure they use UTF-8 encoding
+* text=auto charset=utf-8
+
+# Explicitly declare text files to be text
+*.md text charset=utf-8
+*.txt text charset=utf-8
+*.rst text charset=utf-8
+*.py text charset=utf-8
+*.yaml text charset=utf-8
+*.yml text charset=utf-8
+*.json text charset=utf-8
+*.toml text charset=utf-8
+
+# Declare binary files
+*.pyc binary
+*.pyd binary
+*.pdb binary
+*.pdf binary
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.ico binary
+*.mo binary
+
+# Handle line endings
+# Always use Unix-style line endings for these files
+*.sh text eol=lf
+*.bash text eol=lf
+
+# Python files should use Unix-style line endings
+*.py text eol=lf
+
+# Markdown and text files can use platform-native line endings
+*.md text eol=native
+*.txt text eol=native
+
+# YAML files should use Unix-style line endings
+*.yaml text eol=lf
+*.yml text eol=lf
+
+# JSON files should use Unix-style line endings
+*.json text eol=lf
+
+# Make sure the following are treated as binaries
+*.zip binary
+*.tar binary
+*.tgz binary
+*.gz binary
+*.rar binary
+*.7z binary
+
+# Ensure shell scripts have correct permissions
+*.sh text eol=lf
+*.bash text eol=lf
+
+# Jupyter notebooks should be treated as text
+*.ipynb text charset=utf-8
+
+# Documentation files
+*.md diff=markdown
