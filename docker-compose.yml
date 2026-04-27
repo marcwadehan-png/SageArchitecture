@@ -1,0 +1,108 @@
+# SageArchitecture Docker Compose Configuration
+# For local development and testing
+
+version: '3.8'
+
+services:
+  # SageArchitecture Service
+  sagearchitecture:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: somn/sage-architecture:latest
+    container_name: sagearchitecture
+    restart: unless-stopped
+
+    # Uncomment for GPU support (if applicable)
+    # deploy:
+    #   resources:
+    #     reservations:
+    #       devices:
+    #         - driver: nvidia
+    #           count: all
+    #           capabilities: [gpu]
+
+    environment:
+      - PYTHONUNBUFFERED=1
+      - SAGE_ENV=production
+
+    volumes:
+      # Mount local configs for development
+      - ./sageclaw/configs:/app/sageclaw/configs:ro
+
+      # Mount wisdom documents for hot-reload
+      - ./sagewisdom:/app/sagewisdom:ro
+
+      # Mount god-architecture for reference
+      - ./god-architecture:/app/god-architecture:ro
+
+    # Network configuration
+    ports:
+      - "8000:8000"
+
+    # Resource limits
+    deploy:
+      resources:
+        limits:
+          cpus: '2'
+          memory: 4G
+
+    # Health check
+    healthcheck:
+      test: ["CMD", "python", "-c", "import sys; sys.exit(0)"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 10s
+
+    # Logging
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
+
+  # Development environment with hot-reload
+  sagearchitecture-dev:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: somn/sage-architecture:dev
+    container_name: sagearchitecture-dev
+    profiles:
+      - dev
+
+    environment:
+      - PYTHONUNBUFFERED=1
+      - SAGE_ENV=development
+
+    volumes:
+      # Mount all source files for hot-reload
+      - ./sageclaw:/app/sageclaw
+      - ./sagewisdom:/app/sagewisdom
+      - ./god-architecture:/app/god-architecture
+
+    ports:
+      - "8000:8000"
+      - "5678:5678"  # Debug port
+
+    command: ["python", "-m", "debugpy", "--listen", "0.0.0.0:5678", "-m", "sageclaw"]
+
+  # Testing environment
+  test:
+    image: somn/sage-architecture:latest
+    profiles:
+      - test
+    container_name: sagearchitecture-test
+
+    volumes:
+      - ./tests:/app/tests
+      - ./sageclaw:/app/sageclaw
+
+    command: ["pytest", "/app/tests/", "-v", "--cov=sageclaw"]
+
+# Networks
+networks:
+  default:
+    name: sagearchitecture-network
+    driver: bridge

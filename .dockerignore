@@ -1,0 +1,100 @@
+# Git
+.git
+.gitignore
+.gitattributes
+
+# GitHub
+.github
+.gitkeep
+
+# Documentation
+*.md
+!README.md
+docs
+LICENSE
+CONTRIBUTING.md
+CHANGELOG.md
+AUTHORS.md
+ROADMAP.md
+CODE_OF_CONDUCT.md
+SECURITY.md
+
+# CI/CD
+.github/workflows/*.yml
+.github/workflows/*.yaml
+
+# Testing
+tests
+.pytest_cache
+.coverage
+htmlcov
+.tox
+.hypothesis
+
+# Python
+__pycache__
+*.py[cod]
+*$py.class
+*.so
+.Python
+*.egg-info
+.eggs
+*.egg
+
+# Virtual environments
+.env
+.venv
+venv
+ENV
+env
+
+# IDE
+.vscode
+.idea
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Build artifacts
+build
+dist
+develop-eggs/
+downloads/
+eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.whl
+
+# Logs
+*.log
+logs
+
+# Local configuration
+*.local
+.env.*
+config.local.*
+
+# IDE specific files
+*.iml
+.idea/
+*.ipr
+*.iws
+
+# OS
+Thumbs.db
+.DS_Store
+
+# Documentation build
+site
+_site
+.mkdocs-site
+docs/.mkdocs-cache
+
+# Coverage
+coverage.xml
+.coverage.*

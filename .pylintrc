@@ -1,0 +1,215 @@
+[MASTER]
+# Maximum line length
+max-line-length=120
+
+# Maximum module length
+max-module-lines=2000
+
+# Maximum function length
+max-function-lines=200
+
+# Maximum args to a function
+max-args=10
+
+# Maximum locals to a function
+max-locals=20
+
+# Maximum returns to a function
+max-returns=8
+
+# Maximum branch to a function
+max-branches=20
+
+# Maximum statements in a function
+max-statements=80
+
+# Maximum nested blocks
+max-nested-blocks=6
+
+# Ignored patterns
+ignore-patterns=^\.git,^\.github,^\.venv,^venv,^env,migrations,__pycache__
+
+# Load plugins
+load-plugins=pylint.extensions.docparams,pylint.extensions.bad_builtin
+
+[MESSAGES CONTROL]
+# Disable certain messages
+disable=
+    missing-docstring,
+    too-few-public-methods,
+    too-many-ancestors,
+    too-many-instance-attributes,
+    too-many-public-methods,
+    too-many-arguments,
+    too-many-locals,
+    too-many-statements,
+    too-many-branches,
+    too-many-return-statements,
+    invalid-name,
+    broad-except,
+    unused-wildcard-import,
+    wildcard-import,
+    useless-object-inheritance
+
+# Enable certain messages
+enable=
+    use-list-literal,
+    use-dict-literal,
+    consider-using-f-string,
+    consider-using-enumerate,
+    consider-using-dict-items,
+    simplifiable-if-expression,
+    chained-comparison,
+    consider-using-in,
+    consider-using-get
+
+[REPORTS]
+# Output format
+output-format=text
+
+# Show source line numbers
+source=yes
+
+# Show message ids
+msg-template={msg_id}:{line:3d},{column}: {msg} ({symbol})
+
+# Reports
+reports=yes
+evaluation=10.0 - ((float(5 * warn + 2 * error + 1 * fatal) / statement) * 10)
+
+[REFACTORING]
+# Maximum nested blocks before suggesting a refactor
+max-nested-blocks=6
+
+# Never return True or False in a function
+never-return-typically-functions=sys.exit,logging.critical
+
+[BASIC]
+# Good variable names
+good-names=i,j,k,x,y,z,e,ex,fd,id,ip,pk,db,_
+good-names-rgxs=^[a-z_][a-z0-9_]{2,30}$
+
+# Bad variable names
+bad-names=foo,bar,baz,toto,tutu,tata
+
+# Argument names
+argument-naming-style=snake_case
+attr-naming-style=snake_case
+class-attribute-naming-style=any
+class-naming-style=PascalCase
+const-naming-style=UPPER_CASE
+function-naming-style=snake_case
+inlinevar-naming-style=any
+method-naming-style=snake_case
+module-naming-style=snake_case
+variable-naming-style=snake_case
+
+# Regular expression for acceptable variable names
+variable-rgx=[a-z_][a-z0-9_]{2,30}$
+
+[FORMAT]
+# Maximum line length
+max-line-length=120
+
+# Maximum code line length (docstrings, comments)
+max-module-lines=2000
+
+# Allow long lines in comments
+max-line-length=120
+
+# Newline style
+max-line-length=120
+
+# String quote style
+string-quote=single
+docstring-quote=double
+
+[LOGGING]
+# Logging modules
+logging-format-style=old
+logging-modules=logging
+
+[SPELLING]
+# Spelling checker
+spelling-store-unknown-words=no
+max-spelling-suggestions=4
+spelling-ignore-comment-directives=fmt: on,fmt: off,noqa:,noqa,nosec,isort:skip,mypy:
+
+[STRING]
+# Check string quote consistency
+check-quote-consistency=yes
+
+# Check docstring quote consistency
+check-docstring-quote-consistency=yes
+
+[TYPECHECK]
+# Ignore missing members
+ignore-missing-members=__.*__,._.*
+
+# List of ignored members
+ignored-classes=optparse.Values,thread._local,_thread._local
+
+[MISCELLANEOUS]
+# Notes
+notes=FIXME,XXX,TODO
+
+[CLASSES]
+# List of method names used to declare (i.e. assign)
+defining-attr-methods=__init__,__new__,setUp,__post_init__
+
+# List of valid classes for TypeChecker
+valid-classmethod-first-arg=cls
+
+# List of valid method names for TypeChecker
+valid-metaclass-classmethod-first-arg=cls
+
+[DESIGN]
+# Maximum arguments for a function
+max-args=10
+
+# Maximum attributes for a class
+max-attributes=10
+
+# Maximum boolean expressions
+max-bool-expr=5
+
+# Maximum branch count
+max-branches=20
+
+# Maximum parents for a class
+max-parents=7
+
+# Maximum public methods for a class
+max-public-methods=25
+
+# Maximum return count
+max-returns=8
+
+# Maximum statements in a function
+max-statements=80
+
+# Minimum arguments for a function
+min-args=0
+
+# Minimum attributes for a class
+min-attributes=0
+
+# Minimum public methods for a class
+min-public-methods=0
+
+[IMPORTS]
+# Allow wildcard imports
+allow-wildcard-with-all=no
+
+# Disallow certain imports
+disallowed-imports=os,sys
+
+# List of modules that can be imported with *
+allowed-imports=
+
+# Deprecated modules
+deprecated-modules=optparse,tkinter.tix
+
+[EXCEPTIONS]
+# Exceptions that will emit a warning
+overgeneral-exceptions=builtins.Exception,builtins.Warning
