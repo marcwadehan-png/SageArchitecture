@@ -1,0 +1,39 @@
+[build-system]
+requires = ["setuptools>=45", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "sage-architecture"
+version = "1.0.0"
+description = "神之上架构 + 贤者工程 + 贤者Claw 超级智能体架构系统"
+authors = [
+    {name = "Somn Team", email = "somn@example.com"}
+]
+license = {text = "MIT"}
+readme = "README.md"
+requires-python = ">=3.10"
+keywords = ["ai", "intelligence", "agent", "wisdom", "claw", "architecture"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+]
+
+[project.urls]
+Homepage = "https://github.com/somn-project/SageArchitecture"
+Documentation = "https://github.com/somn-project/SageArchitecture#readme"
+Repository = "https://github.com/somn-project/SageArchitecture.git"
+Issues = "https://github.com/somn-project/SageArchitecture/issues"
+
+
+[tool.setuptools.packages.find]
+where = ["sageclaw"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+python_functions = ["test_*"]
