@@ -44,10 +44,10 @@ docker = [
 ]
 
 [project.urls]
-Homepage = "https://github.com/somn-project/SageArchitecture"
-Documentation = "https://github.com/somn-project/SageArchitecture#readme"
-Repository = "https://github.com/somn-project/SageArchitecture.git"
-Issues = "https://github.com/somn-project/SageArchitecture/issues"
+Homepage = "https://github.com/marcwadehan-png/SageArchitecture"
+Documentation = "https://github.com/marcwadehan-png/SageArchitecture#readme"
+Repository = "https://github.com/marcwadehan-png/SageArchitecture.git"
+Issues = "https://github.com/marcwadehan-png/SageArchitecture/issues"
 
 
 [tool.setuptools.packages.find]
